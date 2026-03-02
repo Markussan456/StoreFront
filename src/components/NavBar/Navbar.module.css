@@ -1,0 +1,33 @@
+.navbar {
+  display: flex;
+  width: 80%;
+  min-width: 50rem;
+  max-width: 80rem;
+  justify-content: center;
+}
+.link {
+  color: var(--color-text);
+  flex-grow: 1;
+  text-align: center;
+  padding: 0.5rem;
+  transition: background-color 0.3s ease-in-out;
+  background-color: var(--color-accent);
+}
+.link:first-child {
+  border-radius: 1rem 0 0;
+}
+.link:last-child {
+  border-radius: 0 1rem 0 0;
+}
+.link:hover {
+  background-color: var(--color-secondary);
+}
+.link p {
+  transition: transform 0.3s ease-in-out;
+}
+.link:hover p {
+  transform: translateY(-3px);
+}
+:global(.active) {
+  background-color: var(--color-secondary);
+}
