@@ -4,4 +4,14 @@
   height: 100%;
   border-radius: 1rem;
   box-shadow: 0 0 30px rgba(162, 134, 255, 0.3);
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.product {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 3rem;
+  word-wrap: 100%;
 }
