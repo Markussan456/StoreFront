@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 import styles from "./Navbar.module.css";
-function NavBar() {
+function NavBar({ totalCart }) {
   return (
     <>
       <nav className={styles.navbar}>
@@ -11,7 +11,7 @@ function NavBar() {
           <p>Shop</p>
         </NavLink>
         <NavLink className={styles.link} to="/cart">
-          <p>Cart</p>
+          <p>Cart {totalCart}</p>
         </NavLink>
       </nav>
     </>
