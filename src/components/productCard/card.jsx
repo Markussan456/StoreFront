@@ -1,3 +1,4 @@
+import { useState } from "react";
 import styles from "../productCard/card.module.css";
 export default function CardElem({
   title = "Test Product",
@@ -6,10 +7,9 @@ export default function CardElem({
   price = "$9.99",
   description = "This is a test description",
   OnAddToCart = () => console.log("added to cart"),
-  DecrementItem = () => console.log("-1 " + title),
-  IncrementItem = () => console.log("+1 " + title),
   id = "fakeid",
 }) {
+  const [inpVal, setVal] = useState("");
   const item = {
     id: id,
     title: title,
@@ -18,18 +18,31 @@ export default function CardElem({
     price: price,
     description: description,
   };
+
+  function incrementItem() {
+    setVal((prev) => {
+      if (prev === "") {
+        return "1";
+      } else {
+        return String(parseInt(prev) + 1);
+      }
+    });
+  }
   function addtoCart() {
-    OnAddToCart((prev) => [...prev, item]);
+    console.log(inpVal);
+    for (let i = 1; i <= parseInt(inpVal); i++) {
+      OnAddToCart((prev) => [...prev, item]);
+    }
+    setVal("");
   }
   function deleteItem() {
-    DecrementItem((prev) => {
-      const index = prev.findIndex((arr) => arr.id === item.id);
-      if (index === -1) return prev;
-      const newCart = [...prev];
-      newCart.splice(index, 1);
-      return newCart;
+    setVal((prev) => {
+      if (prev !== "0" && prev !== "") {
+        return String(parseInt(prev) - 1);
+      } else {
+        return prev;
+      }
     });
-    console.log("-1 " + item.title);
   }
   return (
     <div className={styles.card}>
@@ -41,8 +54,14 @@ export default function CardElem({
       <p>{price} $</p>
       <p className={styles.desc}>{description}</p>
       <div className={styles.inputs}>
-        <input type="number" placeholder="Number of items you want" />
-        <button onClick={IncrementItem}>+</button>
+        <input
+          value={inpVal}
+          type="number"
+          min={0}
+          onChange={(e) => setVal(e.target.value)}
+          placeholder="Number of items you want"
+        />
+        <button onClick={incrementItem}>+</button>
         <button onClick={deleteItem}>-</button>
       </div>
 

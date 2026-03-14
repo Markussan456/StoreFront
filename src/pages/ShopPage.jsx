@@ -29,7 +29,6 @@ function ShopPage({ AddItem }) {
               price={product.price}
               description={product.description}
               OnAddToCart={AddItem}
-              DecrementItem={AddItem}
               id={product.id}
             ></ProductCards>
           ))
