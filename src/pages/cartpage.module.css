@@ -39,3 +39,31 @@ img {
   display: flex;
   gap: 0.5rem;
 }
+.btn {
+  width: 7rem;
+  height: 2rem;
+  font-family: var(--font-main);
+  font-size: 0.7rem;
+  transition: ease-in-out 0.1s transform;
+  position: absolute;
+  right: 32rem;
+}
+.btn:hover {
+  cursor: pointer;
+  transform: translateY(-0.3rem);
+}
+.total {
+  position: absolute;
+  right: 32rem;
+  top: 35rem;
+}
+.addRemoveBtns {
+  width: 2rem;
+  height: 1.5rem;
+}
+.addRemoveBtns:hover {
+  cursor: pointer;
+}
+.btncont {
+  margin-left: 0.5rem;
+}
